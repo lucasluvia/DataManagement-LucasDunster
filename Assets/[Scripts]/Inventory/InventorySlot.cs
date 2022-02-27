@@ -18,6 +18,7 @@ public class InventorySlot : MonoBehaviour
     Inventory TempPlayerInventoryReference;
 
     private TextMeshProUGUI slotText;
+    private TextMeshProUGUI descText;
     
     void Start()
     {
@@ -31,8 +32,10 @@ public class InventorySlot : MonoBehaviour
         ConsoleWorldInventoryReference = inventoryManager.ConsoleWorldInventory;
         TempPlayerInventoryReference = inventoryManager.TempPlayerInventory;
 
-
+        descText = GameObject.Find("DescriptionText").GetComponent<TextMeshProUGUI>();
         slotText = transform.GetComponentInChildren<TextMeshProUGUI>();
+
+        UpdateDescriptionText(false);
     }
 
     void Update()
@@ -152,5 +155,20 @@ public class InventorySlot : MonoBehaviour
         else
             slotText.text = itemInSlot.itemName;
     }
+
+    public void UpdateDescriptionText(bool value)
+    {
+        if(!itemInSlot && descText)
+        {
+            descText.text = "Hover over an item to see its description!";
+            return;
+        }
+
+        if (value)
+            descText.text = (itemInSlot.itemName + ": " + itemInSlot.itemDesc + ".");
+        else
+            descText.text = "Hover over an item to see its description!";
+    }
+
 
 }
