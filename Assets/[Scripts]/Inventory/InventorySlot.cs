@@ -125,6 +125,11 @@ public class InventorySlot : MonoBehaviour
 
     void MoveToConsolePlayer()
     {
+        if (currentInventory == TempPlayerInventoryReference)
+        {
+            consoleController.IncrementPickups();
+        }
+
         if (ConsolePlayerInventoryReference.isFull) return;
 
         Debug.Log("Moved " + itemInSlot.itemName + " to Console Player");
@@ -148,6 +153,11 @@ public class InventorySlot : MonoBehaviour
     
     void MoveToConsoleWorld()
     {
+        if (currentInventory == TempPlayerInventoryReference)
+        {
+            consoleController.IncrementPickups();
+        }
+
         if (ConsoleWorldInventoryReference.isFull) return;
 
         Debug.Log("Moved " + itemInSlot.itemName + " to Console World");
