@@ -23,7 +23,8 @@ public class ItemPickup : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(new Vector3(0, 60 * Time.deltaTime, 0), Space.World);
+        if (!playerController.Paused)
+            transform.Rotate(new Vector3(0, 60 * Time.deltaTime, 0), Space.World);
 
         if (inMagRange && playerController.mag)
         {

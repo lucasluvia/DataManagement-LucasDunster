@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public bool GameOver;
+    public bool Paused;
 
     public bool isJumping;
     public bool isRunning;
