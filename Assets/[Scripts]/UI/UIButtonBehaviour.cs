@@ -13,12 +13,17 @@ public enum DestinationScene
 public class UIButtonBehaviour : MonoBehaviour
 {
     public DestinationScene destinationScene;
+    public AudioSource sfx;
+
 
     public void MoveScene()
     {
+        sfx.Play();
+
         switch (destinationScene)
         {
             case DestinationScene.MENU:
+                
                 SceneManager.LoadScene("MainMenu");
                 break;
             case DestinationScene.GAME:

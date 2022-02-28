@@ -21,7 +21,9 @@ public class InventorySlot : MonoBehaviour
 
     private TextMeshProUGUI slotText;
     private TextMeshProUGUI descText;
-    
+
+    public AudioSource sfx;
+
     void Start()
     {
         inventoryManager = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
@@ -53,7 +55,7 @@ public class InventorySlot : MonoBehaviour
         if (itemInSlot == null) return;
 
         slotPickupCategory = itemInSlot.pickupType;
-        
+        sfx.Play();
 
         switch (parentInventoryType)
         {

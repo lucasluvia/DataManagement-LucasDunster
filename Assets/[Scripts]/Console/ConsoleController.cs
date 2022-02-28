@@ -19,6 +19,9 @@ public class ConsoleController : MonoBehaviour
 
     PlayerController playerController;
 
+    public AudioSource SubmitSFX;
+    public AudioSource WinSFX;
+
     void Start()
     {
         playerController = GameObject.Find("Jackie").GetComponent<PlayerController>();
@@ -61,7 +64,7 @@ public class ConsoleController : MonoBehaviour
         if(collectedPickups >= 10)
         {
             submitButton.gameObject.SetActive(true);
-            //play noise
+            SubmitSFX.Play();
         }
     }
 
@@ -71,6 +74,7 @@ public class ConsoleController : MonoBehaviour
         playerCanvas.enabled = false;
         winCanvas.enabled = true;
         playerController.GameOver = true;
+        WinSFX.Play();
     }
 
 }
