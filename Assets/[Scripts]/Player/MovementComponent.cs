@@ -38,6 +38,7 @@ public class MovementComponent : MonoBehaviour
     public readonly int isJumpingHash = Animator.StringToHash("IsJumping");
     public readonly int isRunningHash = Animator.StringToHash("IsRunning");
     public readonly int isPickingUpHash = Animator.StringToHash("IsPickingUp");
+    public readonly int isInConsoleHash = Animator.StringToHash("IsInConsole");
 
     private void Awake()
     {
@@ -54,6 +55,7 @@ public class MovementComponent : MonoBehaviour
 
     void Update()
     {
+        if (playerController.GameOver) return;
         CheckEffects();
 
         //looking
@@ -96,6 +98,7 @@ public class MovementComponent : MonoBehaviour
 
     public void OnMovement(InputValue value)
     {
+        if (playerController.GameOver) return;
         if (playerController.isPickingUp || usingConsole)
             return;
         inputVector = value.Get<Vector2>();
@@ -105,6 +108,7 @@ public class MovementComponent : MonoBehaviour
 
     public void OnRun(InputValue value)
     {
+        if (playerController.GameOver) return;
         if (playerController.isPickingUp || usingConsole)
             return;
         playerController.isRunning = value.isPressed;
@@ -113,6 +117,7 @@ public class MovementComponent : MonoBehaviour
 
     public void OnJump(InputValue value)
     {
+        if (playerController.GameOver) return;
         if (playerController.isJumping || playerController.isPickingUp || usingConsole)
             return;
 
@@ -123,6 +128,7 @@ public class MovementComponent : MonoBehaviour
 
     public void OnLook(InputValue value)
     {
+        if (playerController.GameOver) return;
         if (playerController.isPickingUp || usingConsole)
             return;
         lookInput = value.Get<Vector2>();
@@ -130,6 +136,7 @@ public class MovementComponent : MonoBehaviour
 
     public void OnPickUp(InputValue value)
     {
+        if (playerController.GameOver) return;
         if (playerController.isPickingUp || !inPickupRange || inventoryManager.TempPlayerInventory.isFull || usingConsole)
             return;
 
@@ -144,16 +151,20 @@ public class MovementComponent : MonoBehaviour
 
     public void OnTempInventoryPrioritize(InputValue value)
     {
+        if (playerController.GameOver) return;
         if (usingConsole)
             TempPriorityHeld = value.isPressed;
     }
 
     public void OnTriggerConsole(InputValue value)
     {
+        if (playerController.GameOver) return;
         if (!InConsoleRange) return;
 
         consoleController.ToggleConsole();
         usingConsole = !usingConsole;
+
+        playerAnimator.SetBool(isInConsoleHash, usingConsole);
     }
 
     private void OnCollisionEnter(Collision other)
