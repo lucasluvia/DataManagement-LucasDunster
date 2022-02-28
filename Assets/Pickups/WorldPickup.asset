@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: WorldPickup
   m_EditorClassIdentifier: 
   itemName: WorldPickup
-  itemDesc: A debug Pickup with World and None settings and no discernable features
+  itemDesc: A debug Pickup with World and Sticky
   pickupType: 1
-  pickupEffect: 0
+  pickupEffect: 4

@@ -169,7 +169,21 @@ public class MovementComponent : MonoBehaviour
         if (other.gameObject.CompareTag("Pickup"))
         {
             highlightedPickup = other.gameObject;
-            inPickupRange = true;
+
+            if (playerController.sticky && inventoryManager.TempPlayerInventory.isFull == false)
+            {
+                
+                playerController.isPickingUp = true;
+                playerAnimator.SetBool(isPickingUpHash, playerController.isPickingUp);
+                highlightedPickup.GetComponent<ItemPickup>().RemovePickupFromWorld();
+                inPickupRange = false;
+
+                inventoryManager.TempPlayerInventory.isFull = true;
+            }
+            else
+            {
+                inPickupRange = true;
+            }
         }
         if (other.gameObject.CompareTag("Console"))
         {

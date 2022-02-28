@@ -15,6 +15,8 @@ public class Inventory : MonoBehaviour
     public InventoryType inventoryType;
     public bool isFull;
 
+    public GameObject slotPrefab;
+
     [SerializeField] GameObject inventoryPanel;
     [SerializeField] List<InventorySlot> itemSlots = new List<InventorySlot>();
     
@@ -48,4 +50,15 @@ public class Inventory : MonoBehaviour
         Debug.Log("SHOULD NEVER GET HERE!!!!!");
         return itemSlots[0];
     }
+
+    public void CreateExtraPlayerSpace()
+    {
+
+    }
+
+    public void RemoveExtraPlayerSpace()
+    {
+
+    }
+
 }
