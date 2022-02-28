@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71cfb72d3552f6b4ea0d623704aa84c8, type: 3}
-  m_Name: WorldPickup
+  m_Name: StickyPickup
   m_EditorClassIdentifier: 
-  itemName: WorldPickup
-  itemDesc: A debug Pickup with World and Magnetic
+  itemName: Sticky Modifier
+  itemDesc: A world modifier that makes objects stick to your hands
   pickupType: 1
-  pickupEffect: 3
+  pickupEffect: 4

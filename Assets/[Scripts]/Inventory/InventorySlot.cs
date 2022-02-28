@@ -12,6 +12,7 @@ public class InventorySlot : MonoBehaviour
     Inventory currentInventory;
     MovementComponent movementComponent;
     PlayerController playerController;
+    ConsoleController consoleController;
 
     Inventory ConsoleDefaultInventoryReference;
     Inventory ConsolePlayerInventoryReference;
@@ -27,6 +28,7 @@ public class InventorySlot : MonoBehaviour
         playerController = GameObject.Find("Jackie").GetComponent<PlayerController>();
         movementComponent = GameObject.Find("Jackie").GetComponent<MovementComponent>();
         currentInventory = transform.parent.GetComponent<Inventory>();
+        consoleController = GameObject.Find("Console").GetComponent<ConsoleController>();
         parentInventoryType = currentInventory.inventoryType;
 
         ConsoleDefaultInventoryReference = inventoryManager.ConsoleDefaultInventory;
@@ -51,11 +53,7 @@ public class InventorySlot : MonoBehaviour
         if (itemInSlot == null) return;
 
         slotPickupCategory = itemInSlot.pickupType;
-        //if(parentInventoryType != InventoryType.TEMP_PLAYER && movementComponent.TempPriorityHeld)
-        //{
-        //    MoveToTempPlayer();
-        //}
-
+        
 
         switch (parentInventoryType)
         {
@@ -89,12 +87,11 @@ public class InventorySlot : MonoBehaviour
 
     void MoveToConsoleDefault()
     {
-        if (ConsoleDefaultInventoryReference.isFull)
+        if(currentInventory == TempPlayerInventoryReference)
         {
-            //do the win state thing/unlock door thing :)
-            Debug.Log("Didn't move " + itemInSlot.itemName + ". Default is full.");
-            return;
+            consoleController.IncrementPickups();
         }
+
 
         if (itemInSlot.pickupEffect == PickupEffect.MORE_SPEED)
         {

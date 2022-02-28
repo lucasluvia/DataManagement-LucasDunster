@@ -147,6 +147,7 @@ public class MovementComponent : MonoBehaviour
 
         inventoryManager.TempPlayerInventory.isFull = true;
 
+
     }
 
     public void OnTempInventoryPrioritize(InputValue value)
@@ -188,8 +189,6 @@ public class MovementComponent : MonoBehaviour
             if (playerController.sticky && inventoryManager.TempPlayerInventory.isFull == false)
             {
                 
-                playerController.isPickingUp = true;
-                playerAnimator.SetBool(isPickingUpHash, playerController.isPickingUp);
                 highlightedPickup.GetComponent<ItemPickup>().RemovePickupFromWorld();
                 inPickupRange = false;
 

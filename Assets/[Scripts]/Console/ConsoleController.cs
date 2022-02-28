@@ -21,7 +21,7 @@ public class ConsoleController : MonoBehaviour
     {
         playerController = GameObject.Find("Jackie").GetComponent<PlayerController>();
         submitButton = GameObject.Find("SubmitButton").GetComponent<Button>();
-        submitButton.enabled = false;
+        submitButton.gameObject.SetActive(false);
         winCanvas.enabled = false;
         ToggleConsole();
     }
@@ -51,7 +51,8 @@ public class ConsoleController : MonoBehaviour
         collectedPickups++;
         if(collectedPickups >= 10)
         {
-            submitButton.enabled = true;
+            submitButton.gameObject.SetActive(true);
+            //play noise
         }
     }
 
