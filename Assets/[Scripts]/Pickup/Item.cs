@@ -14,7 +14,7 @@ public enum PickupEffect
     NONE,
     MORE_SPEED,
     LOW_GRAVITY,
-    EXTRA_SPACE,
+    MAGNETIC_PICKUPS,
     STICKY_PICKUPS
 }
 

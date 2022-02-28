@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: WorldPickup
   m_EditorClassIdentifier: 
   itemName: WorldPickup
-  itemDesc: A debug Pickup with World and Sticky
+  itemDesc: A debug Pickup with World and Magnetic
   pickupType: 1
-  pickupEffect: 4
+  pickupEffect: 3

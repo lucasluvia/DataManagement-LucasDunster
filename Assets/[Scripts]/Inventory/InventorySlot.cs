@@ -104,9 +104,9 @@ public class InventorySlot : MonoBehaviour
         {
             playerController.grav = false;
         }
-        if (itemInSlot.pickupEffect == PickupEffect.EXTRA_SPACE)
+        if (itemInSlot.pickupEffect == PickupEffect.MAGNETIC_PICKUPS)
         {
-            playerController.space = false;
+            playerController.mag = false;
         }
         if (itemInSlot.pickupEffect == PickupEffect.STICKY_PICKUPS)
         {
@@ -153,9 +153,9 @@ public class InventorySlot : MonoBehaviour
 
         Debug.Log("Moved " + itemInSlot.itemName + " to Console World");
 
-        if (itemInSlot.pickupEffect == PickupEffect.EXTRA_SPACE)
+        if (itemInSlot.pickupEffect == PickupEffect.MAGNETIC_PICKUPS)
         {
-            playerController.space = true;
+            playerController.mag = true;
         }
         if (itemInSlot.pickupEffect == PickupEffect.STICKY_PICKUPS)
         {

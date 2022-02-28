@@ -166,6 +166,10 @@ public class MovementComponent : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("MagCollider"))
+        {
+            other.transform.parent.gameObject.GetComponent<ItemPickup>().inMagRange = true;
+        }
         if (other.gameObject.CompareTag("Pickup"))
         {
             highlightedPickup = other.gameObject;
@@ -193,8 +197,13 @@ public class MovementComponent : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (other.gameObject.CompareTag("MagCollider"))
+        {
+            other.transform.parent.gameObject.GetComponent<ItemPickup>().inMagRange = false;
+        }
         if (other.gameObject.CompareTag("Pickup"))
         {
+            highlightedPickup.GetComponent<ItemPickup>().inMagRange = false;
             highlightedPickup = null;
             inPickupRange = false;
         }

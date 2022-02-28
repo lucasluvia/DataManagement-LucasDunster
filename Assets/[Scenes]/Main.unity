@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryType: 3
   isFull: 0
+  slotPrefab: {fileID: 0}
   inventoryPanel: {fileID: 13465697}
   itemSlots:
   - {fileID: 0}
@@ -507,7 +508,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 114208256}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.42, y: 1.71, z: -3.34}
+  m_LocalPosition: {x: -6.42, y: 0, z: -3.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1256103520}
@@ -964,7 +965,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7234703019860668617, guid: 292759e6739824d49be0d7ccf0409aeb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7234703019860668617, guid: 292759e6739824d49be0d7ccf0409aeb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2128,7 +2129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7234703019860668617, guid: 292759e6739824d49be0d7ccf0409aeb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7234703019860668617, guid: 292759e6739824d49be0d7ccf0409aeb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2584,6 +2585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryType: 0
   isFull: 0
+  slotPrefab: {fileID: 0}
   inventoryPanel: {fileID: 847186666}
   itemSlots:
   - {fileID: 0}
@@ -3548,6 +3550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryType: 2
   isFull: 0
+  slotPrefab: {fileID: 0}
   inventoryPanel: {fileID: 1177768011}
   itemSlots:
   - {fileID: 0}
@@ -4055,7 +4058,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7234703019860668617, guid: 292759e6739824d49be0d7ccf0409aeb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7234703019860668617, guid: 292759e6739824d49be0d7ccf0409aeb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5639,6 +5642,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryType: 1
   isFull: 0
+  slotPrefab: {fileID: 0}
   inventoryPanel: {fileID: 2091279852}
   itemSlots:
   - {fileID: 0}
@@ -6311,7 +6315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7234703019860668617, guid: 292759e6739824d49be0d7ccf0409aeb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7234703019860668617, guid: 292759e6739824d49be0d7ccf0409aeb, type: 3}
       propertyPath: m_LocalPosition.z

@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("ItemVariables")]
     public bool speed;
-    public bool space;
     public bool grav;
+    public bool mag;
     public bool sticky;
 }

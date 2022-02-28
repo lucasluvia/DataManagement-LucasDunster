@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Pickup
   - Console
+  - MagCollider
   layers:
   - Default
   - TransparentFX
