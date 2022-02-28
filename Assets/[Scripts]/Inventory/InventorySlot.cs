@@ -11,6 +11,7 @@ public class InventorySlot : MonoBehaviour
     InventoryType parentInventoryType;
     Inventory currentInventory;
     MovementComponent movementComponent;
+    PlayerController playerController;
 
     Inventory ConsoleDefaultInventoryReference;
     Inventory ConsolePlayerInventoryReference;
@@ -23,6 +24,7 @@ public class InventorySlot : MonoBehaviour
     void Start()
     {
         inventoryManager = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
+        playerController = GameObject.Find("Jackie").GetComponent<PlayerController>();
         movementComponent = GameObject.Find("Jackie").GetComponent<MovementComponent>();
         currentInventory = transform.parent.GetComponent<Inventory>();
         parentInventoryType = currentInventory.inventoryType;
@@ -94,6 +96,23 @@ public class InventorySlot : MonoBehaviour
             return;
         }
 
+        if (itemInSlot.pickupEffect == PickupEffect.MORE_SPEED)
+        {
+            playerController.speed = false;
+        }
+        if (itemInSlot.pickupEffect == PickupEffect.LOW_GRAVITY)
+        {
+            playerController.grav = false;
+        }
+        if (itemInSlot.pickupEffect == PickupEffect.EXTRA_SPACE)
+        {
+            playerController.space = false;
+        }
+        if (itemInSlot.pickupEffect == PickupEffect.STICKY_PICKUPS)
+        {
+            playerController.sticky = false;
+        }
+
         Debug.Log("Moved " + itemInSlot.itemName + " to Console Default");
         
         InventorySlot openSlot = ConsoleDefaultInventoryReference.GetNextOpenSlot();
@@ -111,6 +130,15 @@ public class InventorySlot : MonoBehaviour
 
         Debug.Log("Moved " + itemInSlot.itemName + " to Console Player");
 
+        if(itemInSlot.pickupEffect == PickupEffect.MORE_SPEED)
+        {
+            playerController.speed = true;
+        }
+        if (itemInSlot.pickupEffect == PickupEffect.LOW_GRAVITY)
+        {
+            playerController.grav = true;
+        }
+
         InventorySlot openSlot = ConsolePlayerInventoryReference.GetNextOpenSlot();
         openSlot.itemInSlot = itemInSlot;
         itemInSlot = null;
@@ -124,6 +152,15 @@ public class InventorySlot : MonoBehaviour
         if (ConsoleWorldInventoryReference.isFull) return;
 
         Debug.Log("Moved " + itemInSlot.itemName + " to Console World");
+
+        if (itemInSlot.pickupEffect == PickupEffect.EXTRA_SPACE)
+        {
+            playerController.space = true;
+        }
+        if (itemInSlot.pickupEffect == PickupEffect.STICKY_PICKUPS)
+        {
+            playerController.sticky = true;
+        }
 
         InventorySlot openSlot = ConsoleWorldInventoryReference.GetNextOpenSlot();
         openSlot.itemInSlot = itemInSlot;

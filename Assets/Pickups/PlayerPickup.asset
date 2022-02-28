@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PlayerPickup
   m_EditorClassIdentifier: 
   itemName: PlayerPickup
-  itemDesc: A debug Pickup with Player and None settings and no discernable features
+  itemDesc: A debug Pickup with Player and grav
   pickupType: 2
-  pickupEffect: 0
+  pickupEffect: 2

@@ -12,11 +12,10 @@ public enum PickupCategory
 public enum PickupEffect
 {
     NONE,
-    SPEED,
-    HIGH_JUMP,
-    STORAGE,
-    PICKUP_RADUIS,
-    LOW_GRAVITY
+    MORE_SPEED,
+    LOW_GRAVITY,
+    EXTRA_SPACE,
+    STICKY_PICKUPS
 }
 
 [CreateAssetMenu(fileName = "MyPickUp", menuName = "ItemSystem/Pickup")]

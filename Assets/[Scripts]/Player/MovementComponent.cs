@@ -5,10 +5,6 @@ using UnityEngine.InputSystem;
 
 public class MovementComponent : MonoBehaviour
 {
-    [SerializeField] float walkSpeed = 5.0f;
-    [SerializeField] float runSpeed = 10.0f;
-    [SerializeField] float jumpForce = 5.0f;
-
     // Components
     private PlayerController playerController;
     Rigidbody rigidbody;
@@ -25,7 +21,10 @@ public class MovementComponent : MonoBehaviour
     Vector3 moveDirection = Vector3.zero;
     Vector2 lookInput = Vector3.zero;
 
-    public float aimSensitivity = 0.5f;
+    float walkSpeed = 5.0f;
+    float runSpeed = 10.0f;
+    float jumpForce = 2.5f;
+    float aimSensitivity = 0.5f;
 
     public bool InConsoleRange;
     private bool usingConsole = false;
@@ -55,6 +54,7 @@ public class MovementComponent : MonoBehaviour
 
     void Update()
     {
+        CheckEffects();
 
         //looking
         followTarget.transform.rotation *= Quaternion.AngleAxis(lookInput.x * aimSensitivity, Vector3.up);
@@ -117,7 +117,7 @@ public class MovementComponent : MonoBehaviour
             return;
 
         playerController.isJumping = value.isPressed;
-        rigidbody.AddForce((transform.up + moveDirection) * jumpForce, ForceMode.Impulse);
+        rigidbody.AddForce((transform.up + (moveDirection/2)) * jumpForce, ForceMode.Impulse);
         playerAnimator.SetBool(isJumpingHash, playerController.isJumping);
     }
 
@@ -189,4 +189,28 @@ public class MovementComponent : MonoBehaviour
             InConsoleRange = false;
         }
     }
+
+    private void CheckEffects()
+    {
+        if(playerController.speed)
+        {
+            walkSpeed = 10.0f;
+            runSpeed = 15.0f;
+        }
+        else
+        {
+            walkSpeed = 5.0f;
+            runSpeed = 10.0f;
+        }
+
+        if(playerController.grav)
+        {
+            jumpForce = 10.0f;
+        }
+        else
+        {
+            jumpForce = 7.5f;
+        }
+    }
+
 }
